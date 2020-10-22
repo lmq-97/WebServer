@@ -1,0 +1,3 @@
+include ':JYWebService'
+include ':app'
+rootProject.name = "WebServer"
