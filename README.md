@@ -1,2 +1,2 @@
 # WebServer
-远程地址：git@github.com:lmq-97/WebServer.git
+androidStudio远程地址：com.github.lmq-97:WebServer:v1.0
