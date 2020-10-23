@@ -17,7 +17,7 @@ public class App extends Application {
         new WebServiceConfigManager.Builder()
                 .setBASE_URL("http://123.206.231.121:1897/yltest1027/") // 请求地址
 //                .setBASE_URL("/yltest1027/") // 请求地址
-                .setNAME_SPACE("http://tempuri.org/GetProInv") // 命名空间
+                .setNAME_SPACE("http://tempuri.org/") // 命名空间
                 .setHEAD_PAGE("service1.asmx") // 页面
                 .build();
 

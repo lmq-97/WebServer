@@ -127,11 +127,11 @@ public class RequestManager {
      */
     void execute(Observable<ResponseBody> call, final String method, Map<String, String> map, final ObservableEmitter<String> emitter) {
 
-        System.out.println("method=="+WebServiceConfigManager.getBuilder().NAME_SPACE + method);
+        System.out.println("method==" + WebServiceConfigManager.getBuilder().NAME_SPACE + method);
         // 添加请求头
         Map<String, String> headers = new HashMap<>();
         headers.put("Content-Type", "text/xml; charset=utf-8");
-        headers.put("SOAPAction", WebServiceConfigManager.getBuilder().NAME_SPACE );
+        headers.put("SOAPAction", WebServiceConfigManager.getBuilder().NAME_SPACE + method);
 
         call = apiService.getResponBody(
                 headers,
@@ -167,6 +167,7 @@ public class RequestManager {
                             return;
                         }
                         try {
+
                             if (analysisResult(responseBody.string(), method)) {
                                 emitter.onNext(webserviceResult);
                                 return;
@@ -187,16 +188,17 @@ public class RequestManager {
 
     // 解析xml
     private boolean analysisResult(String response, final String method) {
-
+        System.out.println("返回数据：" + response);
         String startTag = "<" + method + "Result" + ">";
         String endTag = "</" + method + "Result" + ">";
+        //GetProInvResult
         if (response.contains(startTag) && response.contains(endTag)) {
             int startIndex = response.indexOf(startTag) + startTag.length();
             int endIndex = response.lastIndexOf(endTag);
             webserviceResult = response.substring(startIndex, endIndex);
+            System.out.println("返回数据解析结果：" + webserviceResult);
             return true;
         }
-
         return false;
     }
 
@@ -208,8 +210,8 @@ public class RequestManager {
     }
 
     /*
-    *  清除实例
-    * */
+     *  清除实例
+     * */
     public void clear() {
 
         if (manager != null)

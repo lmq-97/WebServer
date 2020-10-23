@@ -32,6 +32,8 @@ dependencies {
 
 //    implementation 'com.qj.webservice:QYWebservice:1.1.0'
     implementation project(path: ':JYWebService')
+
+//    implementation 'com.github.lmq-97:WebServer:v1.0'
     implementation 'io.reactivex.rxjava2:rxjava:2.2.0'
     implementation 'io.reactivex.rxjava2:rxandroid:2.1.0'
     implementation 'com.squareup.retrofit2:retrofit:2.3.0'
